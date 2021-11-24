@@ -94,3 +94,10 @@ input {
     font-size: 15pt;
     margin-left: 195px;
 }
+
+
+.error_mail p, .error_pass p{
+    font-size: 11pt;
+    color: red;
+    text-align: left;
+}
