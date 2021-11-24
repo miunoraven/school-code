@@ -102,3 +102,9 @@ input {
     margin-left: 230px;
 }
 
+.error p{
+    font-size: 11pt;
+    color: red;
+    text-align: left;
+}
+
