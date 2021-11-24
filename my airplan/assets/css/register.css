@@ -56,7 +56,7 @@ h1 .logo{
     background-color: white;
     padding: 30px;
     width: 700px;
-    height: 650px;
+    height: auto;
     border-radius: 5%;
 }
 
@@ -86,6 +86,7 @@ input {
     color: white;
     padding: 15px 30px;
     font-size: 15pt;
+    margin-top: 20px;
     margin-left: 285px;
     cursor: pointer;
 }
