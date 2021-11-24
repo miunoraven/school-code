@@ -9,7 +9,6 @@ var errorMailElement = document.querySelector(".error_mail");
 var errorPassElement = document.querySelector(".error_pass");
 
 // hardcoded user
-
 var users = [{ 
     email: "r0797856@student.thomasmore.be",
     password: "hello" 
@@ -62,9 +61,6 @@ buttonElement.addEventListener("click", function(){
         users.push(user);
         buttonLinkElement.href="search_flight_numb.html";
     }
-
-    
-
 
 });
 
