@@ -11,7 +11,7 @@
         include "./components/navigation.php";
     ?>
     <h1>
-        ho,epage
+        homepage
     </h1>
 
     <ul>
