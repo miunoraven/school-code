@@ -4,6 +4,13 @@
     $dbPassword = "root";
     $dbName = "airplan";
 
+    	
+    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+    
+    if ($conn == false) {
+        die("Connection failed"); 
+    }
+
     $sql = "SELECT * FROM airports;";
     $result = mysqli_query($conn, $sql);
 
