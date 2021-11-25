@@ -59,7 +59,7 @@ buttonElement.addEventListener("click", function(){
             password: given_pass 
         }; 
         users.push(user);
-        buttonLinkElement.href="search_flight_numb.html";
+        buttonLinkElement.href="search_flight_numb.php";
     }
 
 });

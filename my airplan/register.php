@@ -29,7 +29,7 @@
                     <a class="link_button">
                         <button class="button-register">Sign up</button>
                     </a>
-                    <p>Already have an account? <a href="signin.html" class="signin">Sign in</a></p>
+                    <p>Already have an account? <a href="index.php" class="signin">Sign in</a></p>
                 </div>
             </div>
         </div>

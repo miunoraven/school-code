@@ -15,7 +15,7 @@ buttonElement.addEventListener("click", function(){
     var given_pass = inputPasswordElement.value;
 
     if(given_email == user.email && given_pass == user.password){
-        linkHtmlElement.href="search_flight_numb.html";
+        linkHtmlElement.href="search_flight_numb.php";
     }
     else{
         var errorPElement = document.querySelector(".error p");
