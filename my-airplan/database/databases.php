@@ -7,7 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>WTF</h1>
     <?php
             $dbServername = "localhost";
             $dbUsername = "root";
@@ -20,7 +19,6 @@
             if ($conn == false) {
                 echo "Connection failed";
             } 
-
 
             $sql = "SELECT * FROM airports;";
             $result = mysqli_query($conn, $sql);
