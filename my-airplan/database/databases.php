@@ -15,20 +15,26 @@
             $dbName = "airplan";
 
                 
-            // $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+            $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
             
-            // if ($conn == false) {
-            //     echo "Connection failed"; 
-            // }
+            if ($conn == false) {
+                echo "Connection failed";
+            } 
 
-            // $sql = "SELECT * FROM airports;";
-            // $result = mysqli_query($conn, $sql);
+
+            $sql = "SELECT * FROM airports;";
+            $result = mysqli_query($conn, $sql);
 
                 
-            // foreach ($airport as $result->fetch_all(MYSQLI_ASSOC)) {
-            //     echo $airport["name"];
-            //     echo $airport["country"];
-            // } 
-        ?> 
+            foreach ($result->fetch_all(MYSQLI_ASSOC) as $airport) {
+                echo $airport["name"];
+                echo $airport["country"];
+            } 
+            	
+            $conn->close();
+
+            ?>
+            
+         
 </body>
 </html>
