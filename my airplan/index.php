@@ -26,7 +26,7 @@
                     <a class="link_button">
                         <button class="button-signin">Sign in</button> <br>
                     </a>
-                    <p>No account yet? <a href="./databases/databases.php" class="register">Register</a></p>
+                    <p>No account yet? <a href="./database/databases.php" class="register">Register</a></p>
                 </div>
             </div>
         </div>
