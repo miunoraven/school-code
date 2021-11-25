@@ -1,19 +1,18 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Databases</title>
-    </head>
-    <body>
-        <h1>WAT DE FUK</h1>
-
-           <?php
-            // $dbServername = "localhost";
-            // $dbUsername = "root";
-            // $dbPassword = "root";
-            // $dbName = "airplan";
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>WTF</h1>
+    <?php
+            $dbServername = "localhost";
+            $dbUsername = "root";
+            $dbPassword = "root";
+            $dbName = "airplan";
 
                 
             // $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
@@ -31,19 +30,5 @@
             //     echo $airport["country"];
             // } 
         ?> 
-
-    </body>
-</html> -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>WTF</h1>
 </body>
 </html>
