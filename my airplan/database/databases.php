@@ -8,7 +8,7 @@
     $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
     
     if ($conn == false) {
-        die("Connection failed"); 
+        echo "Connection failed"; 
     }
 
     $sql = "SELECT * FROM airports;";
