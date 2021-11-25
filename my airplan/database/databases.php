@@ -7,6 +7,7 @@
         <title>Databases</title>
     </head>
     <body>
+        <h1>WAT DE FUK</h1>
         <?php
             $dbServername = "localhost";
             $dbUsername = "root";
