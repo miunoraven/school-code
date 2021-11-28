@@ -28,10 +28,14 @@
                 echo $airport["name"];
                 echo $airport["country"];
             } 
+
+            
             	
             $conn->close();
 
             ?>
+
+
             
          
 </body>
