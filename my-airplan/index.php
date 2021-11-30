@@ -28,7 +28,7 @@
                             <button class="button-signin">Sign in</button> <br>
                         </a>
                     </form>
-                    <p>No account yet? <a href="http://localhost/database/databases.php" class="register">Register</a></p>
+                    <p>No account yet? <a href="http://localhost/database/api.php" class="register">Register</a></p>
                 </div>
             </div>
         </div>
