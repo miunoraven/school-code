@@ -16,19 +16,19 @@
                 <h1>My Airplan <img src="assets/images/airplan_logo.png" alt="logo" class="logo"></h1>                
                 <div class="signin">
                     <h2>Sign in</h2>
-                    <form method="get">
-                        <input type="email" id="input-email" placeholder="E-mail" required>
+                    <form method="get" action="authentication.php">
+                        <input type="email" id="input-email" name="input-email" placeholder="E-mail" required>
                         <br> <br>
-                        <input type="password" id="input-pass" placeholder="Password" required>
+                        <input type="password" id="input-pass" name="input-pass" placeholder="Password" required>
                         <div class="error"></div>
                         <a href="#" class="forgot_pass">Forgot password?</a>
                         <br>
                         <br>
-                        <a class="link_button">
-                            <button class="button-signin">Sign in</button> <br>
-                        </a>
+
+                        <input type="submit" class="button-signin" value="Sign in"/> <br>
+
                     </form>
-                    <p>No account yet? <a href="http://localhost/database/api.php" class="register">Register</a></p>
+                    <p>No account yet? <a href="/database/databases.php" class="register">Register</a></p>
                 </div>
             </div>
         </div>
