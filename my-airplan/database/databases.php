@@ -4,27 +4,28 @@
         private $dbUsername = "root";
         private $dbPassword = "root";
         private $dbName = "airplan"; 
+        private $conn;
         // private $conn;
 
         // public $arrayUsers;
 
-        public function __construc(){
-            mysql_connect($this->dbServername, $this->dbUsername, $this->dbPassword);  
-            mysql_select_db($this->db); 
-            
+        function __construct() {
+            $this->conn = mysqli_connect($this->dbServername, $this->dbUsername, $this->dbPassword, $this->dbName);  
         }
+
         private function query_executed($sql)  
         {  
-            $conn = new mysqli($this->dbServername, $this->dbUsername, $this->dbPassword,$this->db);
-            $result = mysqli_query($conn, $sql);
+            $result = mysqli_query($this->conn, $sql);
+            var_dump($result);
+            die();
             return $result;  
         }
 
         public function get_rows($tablename)  
         {  
             $sql = "SELECT * FROM $tablename;";  
-            $results = $this->query_executed($sql);  
-            echo var_dump($result);
+            $result = $this->query_executed($sql);  
+            var_dump($result);
             $rows = $result->fetch_all(MYSQLI_ASSOC);  
             return $rows;  
         } 
@@ -61,7 +62,12 @@
 
     }
 
-    $database = new Database();
+    class Airports extends Database {
+        public function getAirports() ç
+            //extensie schrijven van klasse zelf
+
+    }
+    $database = new Airports();
     $array = $database->get_rows("airports");
     echo $array;
     // 
