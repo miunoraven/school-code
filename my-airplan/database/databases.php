@@ -13,66 +13,68 @@
             $this->conn = mysqli_connect($this->dbServername, $this->dbUsername, $this->dbPassword, $this->dbName);  
         }
 
-        private function query_executed($sql)  
+        private function executeQuery($sql)  
         {  
             $result = mysqli_query($this->conn, $sql);
-            var_dump($result);
-            die();
             return $result;  
         }
 
-        public function get_rows($tablename)  
+        public function getData($tablename)  
         {  
             $sql = "SELECT * FROM $tablename;";  
-            $result = $this->query_executed($sql);  
-            var_dump($result);
-            $rows = $result->fetch_all(MYSQLI_ASSOC);  
-            return $rows;  
-        } 
-
-        public function get_fetch_data($r)  
-        {  
-            $array = array();  
-            while ($rows = $r->fetch_all(MYSQLI_ASSOC))  
-            {  
-                $array[] = $rows;  
-            }  
+            $result = $this->executeQuery($sql); 
+            $array = $result->fetch_all(MYSQLI_ASSOC);  
             return $array;  
         } 
 
-
-        public function getAllData(){    
-            $airports = [];
-            $sql = "SELECT * FROM airports;";
-            $result = mysqli_query($this->conn, $sql);
-            echo var_dump($result);
-                
-            // foreach ($result->fetch_all(MYSQLI_ASSOC) as $airport) {
-            //     $input = array(
-            //         "name" => $airport["name"],
-            //         "country" => $airport["country"],
-            //         "iata" => $airport["iata"],
-            //         "icao" => $airport["icao"]
-            //     );
-            //     array_push($airports, $input);
-            // }
-            // return $airports;
-        
+        public function addAccount($fname, $lname, $email, $password){
+            $sql = "INSERT INTO accounts VALUES ($fname, $lname, $email, $password);";
+            $result = $this->executeQuery($sql);
+            if(!$result) echo "could not add account";
         }
 
+        // public function getAllData(){    
+        //     $airports = [];
+        //     $sql = "SELECT * FROM airports;";
+        //     $result = mysqli_query($this->conn, $sql);
+        //     //var_dump($result);
+                
+        //     // foreach ($result->fetch_all(MYSQLI_ASSOC) as $airport) {
+        //     //     $input = array(
+        //     //         "name" => $airport["name"],
+        //     //         "country" => $airport["country"],
+        //     //         "iata" => $airport["iata"],
+        //     //         "icao" => $airport["icao"]
+        //     //     );
+        //     //     array_push($airports, $input);
+        //     // }
+        //     // return $airports;
+         
+        // }
+
     }
 
-    class Airports extends Database {
-        public function getAirports() ç
-            //extensie schrijven van klasse zelf
+    // class Airports extends Database {
+    //     public function getAirports() ç
+    //         //extensie schrijven van klasse zelf
 
-    }
-    $database = new Airports();
+    // }
+    $database = new Database();
     $array = $database->get_rows("airports");
-    echo $array;
+    echo $array[0]["icao"];
     // 
 
+    // $sql = "INSERT INTO wizard VALUES (\"$id\",\"$fname\", \"$lname\", $age, \"$gender\", \"$description\", 0, 0, 0, 0);";
+
+    // $number_sql = "SELECT $house FROM wizard WHERE id = \"$id\";";
+    // $result1 = mysqli_query($conn, $number_sql);
+    // $number = mysqli_fetch_array($result1);
+    // $new_result = $number[0]+1;
+    // $sql = "UPDATE wizard SET $house = $new_result WHERE id = \"$id\";";
+    // $result2 = mysqli_query($conn, $sql);
+    // echo "done";
     
+    // $conn->close();
 
     
     // function addData(){
