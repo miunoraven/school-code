@@ -30,12 +30,13 @@
         public function addAccount($fname, $lname, $email, $password){
             $sql = "INSERT INTO accounts (`id`, `firstname`, `lastname`, `email`, `password`) VALUES (NULL,\"$fname\", \"$lname\", \"$email\", \"$password\");";
             if ($this->conn->query($sql) === TRUE) {
-                echo "yeye";
+                echo "Added";
             }
-            else echo "fuck";
+            else echo "Could not connect to database";
         }
+    }
 
-        // public function getAllData(){    
+            // public function getAllData(){    
         //     $airports = [];
         //     $sql = "SELECT * FROM airports;";
         //     $result = mysqli_query($this->conn, $sql);
@@ -53,8 +54,6 @@
         //     // return $airports;
          
         // }
-
-    }
 
     // class Airports extends Database {
     //     public function getAirports() ç

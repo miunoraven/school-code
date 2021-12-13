@@ -1,2 +1,5 @@
 <?php
-    echo "noice got it right!!";
+    include "database/api.php";
+    $api = new API("2021-10-31T06:00","2021-10-31T18:00");
+    $array = $api->$response;
+    var_dump($array);

@@ -6,8 +6,8 @@
     $isAuth = FALSE;
     $database = new Database();
     $array = $database->getData("accounts");
-    for($i = 0; $i < sizeof($array)-1; $i++){
+    for($i = 0; $i < sizeof($array); $i++){
         if($array[$i]["email"] == $email && $array[$i]["password"] == $pass) $isAuth = TRUE;
     }
     if($isAuth) header("Location: http://localhost/testing.php");
-    else echo $array[$i]["email"]. " vs ". $email . " & " . $array[$i]["password"] . " vs " . $pass . " and auth is ". $isAuth;
+    else echo "Could not login";
