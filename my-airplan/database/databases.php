@@ -16,7 +16,7 @@
         private function executeQuery($sql)  
         {  
             $result = mysqli_query($this->conn, $sql);
-            return $result;  
+            return $result;
         }
 
         public function getData($tablename)  
@@ -24,13 +24,15 @@
             $sql = "SELECT * FROM $tablename;";  
             $result = $this->executeQuery($sql); 
             $array = $result->fetch_all(MYSQLI_ASSOC);  
-            return $array;  
+            return $array;
         } 
 
         public function addAccount($fname, $lname, $email, $password){
-            $sql = "INSERT INTO accounts VALUES ($fname, $lname, $email, $password);";
-            $result = $this->executeQuery($sql);
-            if(!$result) echo "could not add account";
+            $sql = "INSERT INTO accounts (`id`, `firstname`, `lastname`, `email`, `password`) VALUES (NULL,\"$fname\", \"$lname\", \"$email\", \"$password\");";
+            if ($this->conn->query($sql) === TRUE) {
+                echo "yeye";
+            }
+            else echo "fuck";
         }
 
         // public function getAllData(){    
@@ -59,9 +61,8 @@
     //         //extensie schrijven van klasse zelf
 
     // }
-    $database = new Database();
-    $array = $database->get_rows("airports");
-    echo $array[0]["icao"];
+    // $database = new Database();
+    // $array = $database->getData("airports");
     // 
 
     // $sql = "INSERT INTO wizard VALUES (\"$id\",\"$fname\", \"$lname\", $age, \"$gender\", \"$description\", 0, 0, 0, 0);";

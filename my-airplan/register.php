@@ -5,17 +5,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Register</title>
-        <?php include "/components/fonts.php"; ?>
+        <?php include "components/fonts.php"; ?>
         <!-- <link rel="stylesheet" href="assets/css/register.css" type="text/css"> -->
     </head>
     <body>
         <div class="background">
             <div class="content">
-                <h1>My Airplan <img src="assets/images/airplan_logo.png" alt="logo" class="logo"></h1>
+                <!-- <h1>My Airplan <img src="assets/images/airplan_logo.png" alt="logo" class="logo"></h1> -->
                 
                 <div class="register">
                     <h2>Make a new account</h2>
-                    <form action="" method="post">
+                    <form action="add_acc.php" method="post">
                         <input type="text" name="firstname" id="firstname" placeholder="Firstname" required>
                         <br> <br>
                         <input type="text" name="lastname" id="lastname" placeholder="Lastname" required>
@@ -32,10 +32,6 @@
                         <br>
                         <input type="submit" value="signin" class="button-register">
                     </form>
-                    <?php
-                        $fname = $_POST("firstname");
-                        echo $fname; ?>
-
                     <p>Already have an account? <a href="index.php" class="signin">Sign in</a></p>
                 </div>
             </div>
