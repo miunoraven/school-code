@@ -1,9 +1,9 @@
 <?php
 	class API{
 
-		public $response;
+		private $response;
 
-		function __construct($start, $end){
+		public function getJSon($start, $end){
 			$curl = curl_init();
 			curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
@@ -16,7 +16,7 @@
 					"x-rapidapi-key: 27dfaea46cmsh079a1a851443691p1bb619jsn2e2776ada877"
 				],
 			]);
-			
+
 			$this->response = curl_exec($curl);
 			$err = curl_error($curl);
 			
@@ -25,6 +25,8 @@
 			if ($err) {
 				echo "cURL Error #:" . $err;
 			}
+			$jsonObject = json_decode($this->response);
+			return $jsonObject;
 		}
 
 
