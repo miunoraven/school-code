@@ -28,7 +28,5 @@
 			$jsonObject = json_decode($this->response);
 			return $jsonObject;
 		}
-
-
 	}
 
