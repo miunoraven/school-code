@@ -69,20 +69,22 @@ h1 .logo{
 
 .signin .forgot_pass{
     font-size: 12pt;
-    margin-left: 450px;
+    margin-top: 10px;
+    margin-left: 300px;
 }
 
 form{
+    text-align: center;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 input {
     font-size: 12pt;
     font-family: 'Outfit', sans-serif;
-    width: 60%;
-    padding: 15px 20px;
-    margin-top: 20px;
+    width: 55%;
+    padding: 15px 20px; 
     border-radius: 10pt;
     outline: none;
     border: 1px solid steelblue;
@@ -96,7 +98,7 @@ input {
     padding: 15px 30px;
     font-size: 15pt;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .signin p{

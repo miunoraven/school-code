@@ -66,14 +66,18 @@ h1 .logo{
     font-size: 30pt;
 }
 
+form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 input {
     font-size: 12pt;
     font-family: 'Outfit', sans-serif;
-    width: 60%;
+    width: 55%;
     padding: 15px 20px;
-    margin-top: 20px;
-    margin-left: 120px;
-    margin-right: auto; 
     border-radius: 10pt;
     outline: none;
     border: 1px solid steelblue;;
@@ -86,9 +90,8 @@ input {
     color: white;
     padding: 15px 30px;
     font-size: 15pt;
-    margin-top: 20px;
-    margin-left: 285px;
     cursor: pointer;
+    margin-top: 15px;
 }
 
 .register p{
