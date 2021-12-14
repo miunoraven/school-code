@@ -1,5 +1,5 @@
 <?php
-    include "database/databases.php";
+    include "../database/databases.php";
     $firstname = $_POST["firstname"];
     $lastname = $_POST["lastname"];
     $email = $_POST["email"];
