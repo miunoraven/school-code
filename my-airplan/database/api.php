@@ -5,6 +5,7 @@
 
 		public function getJSon($start, $end){
 			$curl = curl_init();
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
 			
