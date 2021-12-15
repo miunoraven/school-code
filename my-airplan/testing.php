@@ -1,6 +1,18 @@
-<?php
-    echo "hello";
-    // include "database/api.php";
-    // $api = new API();
-    // $api->getJSon("2021-10-31T06:00","2021-10-31T18:00");
-    // var_dump($api->$response);
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Find flight</title>
+    </head>
+    <body>
+        <form action="search_flight.php" method="post">
+            <input type="text" name="flightnumb" id="flightnumb" placeholder="e.g. XX 0000">
+            <input type="submit" value="Search">
+        </form>
+    </body>
+</html>
+
+
+

@@ -1,8 +1,9 @@
 <?php
+	include "databases.php";
 	class API{
 
-		private $response;
-
+		// public $response;
+		
 		public function getJSon($start, $end){
 			$curl = curl_init();
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
@@ -18,13 +19,34 @@
 				],
 			]);
 
-			$this->response = curl_exec($curl);
+			$response = curl_exec($curl);
 			$err = curl_error($curl);
 			
 			curl_close($curl);
 			
 			if ($err) {
 				echo "cURL Error #:" . $err;
+				die();
+			}
+			$json = json_decode($response);
+			return $json;
+			// var_dump($myObj->departures[0]->arrival->airport->iata);
+			// var_dump($myObj);
+		}	
+
+		public function findFlight($flightnumber, $json){
+			$departures = $json->departures;
+			for($i = 0; $i < sizeof($departures);$i++){
+				if($departures[$i]->number==$flightnumber){
+					$icao = $departures[$i]->arrival->airport->icao;
+					$data = new Database();
+					$airports = $data->getData("airports");
+					for($j = 0; $j < sizeof($airports);$j++){
+						if($icao == $airports[$j]["icao"]){
+							echo "Flight to ". $airports[$j]["name"];
+						}
+					}
+				}
 			}
 		}
 	}
