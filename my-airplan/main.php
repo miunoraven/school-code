@@ -1,18 +1,18 @@
+<?php
+//database and api are called in search_flight
+    include "search_flight.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Find flight</title>
+        <title>Result</title>
     </head>
     <body>
-        <form action="search_flight.php" method="post">
-            <input type="text" name="flightnumb" id="flightnumb" placeholder="e.g. XX 0000">
-            <input type="submit" value="Search">
-        </form>
+        <h1>Result for <?php $flightnumb ?></h1>
+        
     </body>
 </html>
-
-
 

@@ -10,5 +10,5 @@
     for($i = 0; $i < sizeof($array); $i++){
         if($array[$i]["email"] == $email && $array[$i]["password"] == $pass) $isAuth = TRUE;
     }
-    if($isAuth) header("Location: http://localhost/testing.php");
+    if($isAuth) header("Location: http://localhost/flightnumb_search.php");
     else echo "Could not login";

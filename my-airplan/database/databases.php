@@ -5,7 +5,6 @@
         private $dbPassword = "root";
         private $dbName = "airplan"; 
         private $conn;
-        // private $conn;
 
         // public $arrayUsers;
 
@@ -19,7 +18,14 @@
             return $result;
         }
 
-        public function getData($tablename)  
+        public function getOrderedAirports(){ //get an array of all the airports ordered on name (for the select on the search pages)
+            $sql = "SELECT * FROM `airports` ORDER BY `airports`.`name` ASC";
+            $result = $this->executeQuery($sql); 
+            $array = $result->fetch_all(MYSQLI_ASSOC);  
+            return $array;
+        }
+
+        public function getData($tablename)  //get all data from the input table
         {  
             $sql = "SELECT * FROM $tablename;";  
             $result = $this->executeQuery($sql); 
@@ -27,7 +33,7 @@
             return $array;
         } 
 
-        public function addAccount($fname, $lname, $email, $password){
+        public function addAccount($fname, $lname, $email, $password){ //add user to the accounts
             $sql = "INSERT INTO accounts (`id`, `firstname`, `lastname`, `email`, `password`) VALUES (NULL,\"$fname\", \"$lname\", \"$email\", \"$password\");";
             if ($this->conn->query($sql) === TRUE) {
                 echo "Added";
