@@ -11,3 +11,5 @@
         $database->addAccount($firstname, $lastname, $email, $pass);
         header("Location: http://localhost/testing.php");
     }
+
+    //hostname eruit halen (.n)
