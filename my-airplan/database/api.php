@@ -32,21 +32,50 @@
 			$this->json = json_decode($response); //get the json --> call as object
 		}	
 
-		public function findAirport($flightnumber){
-			$departures = $this->json->departures;
-			for($i = 0; $i < sizeof($departures);$i++){
-				if($departures[$i]->number==$flightnumber){
-					$icao = $departures[$i]->arrival->airport->icao;
-					$data = new Database();
-					$airports = $data->getData("airports");
-					for($j = 0; $j < sizeof($airports);$j++){
-						if($icao == $airports[$j]["icao"]){
-							return $airports[$j]; //return the airport 
-						}
-					}
+		public function findAirport($icao){
+			$data = new Database();
+			$airports = $data->getData("airports");
+			for($i = 0; $i < sizeof($airports);$i++){
+				if($icao == $airports[$i]["icao"]){
+					return $airports[$i]["name"]; //return the airport name, icao and iata
 				}
 			}
-			echo "Could not find airport";
+			echo "Could not find the airport";
+		}
+		
+
+		public function findFlight($flightnumber, $departure){
+			$flights = $this->json->departures;
+			
+			$dep_name = $this->findAirport($departure);
+			
+			for($i = 0; $i < sizeof($flights);$i++){
+				if($flights[$i]->number==$flightnumber){
+
+					$icao = $flights[$i]->arrival->airport->icao;
+					$arr_name = $this->findAirport($icao);
+
+					$dep_time = $flights[$i]->departure->scheduledTimeLocal;
+					$checkin = $flights[$i]->departure->checkInDesk;
+
+					$status = $flights[$i]->status;
+					$airline = $flights[$i]->airline->name;
+
+					$flight = [	"flight_number" => $flightnumber,
+								"dep_name" => $dep_name,
+								"arr_name" => $arr_name,
+								"dep_time" => $dep_time,
+								"checkin" => $checkin,
+								"status" => $status,
+								"airline" => $airline
+							];
+
+					return $flight;
+				}
+			}
+
+			echo "Could not make a flight";
+			
 		}
 	}
 
