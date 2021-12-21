@@ -28,11 +28,12 @@
             <li>From <?php echo $flight["dep_name"]; ?></li>
             <li>To <?php echo $flight["arr_name"]; ?></li>
             <li>Departure on <?php echo $flight["dep_time"]; ?></li>
+            <li>Gate <?php echo $flight["gate"]; ?></li>
             <li>Check-in <?php echo $flight["checkin"]; ?></li>
             <li><?php echo $flight["status"]; ?></li>
             <li><?php echo $flight["airline"]; ?></li>
         </ul>
-        <button type="submit">Add flight</button>
+        <button type="submit" id="add_account" onclick="addFlight()">Add flight</button>
     </body>
 </html>
 

@@ -37,7 +37,7 @@
 			$airports = $data->getData("airports");
 			for($i = 0; $i < sizeof($airports);$i++){
 				if($icao == $airports[$i]["icao"]){
-					return $airports[$i]["name"]; //return the airport name, icao and iata
+					return $airports[$i]; //return the airport name, icao and iata
 				}
 			}
 			echo "Could not find the airport";
@@ -47,13 +47,23 @@
 		public function findFlight($flightnumber, $departure){
 			$flights = $this->json->departures;
 			
-			$dep_name = $this->findAirport($departure);
+			$dep_airport = $this->findAirport($departure);
+			$dep_name = $dep_airport["name"];
+
+			if($dep_airport["continent"] == "EU"){
+				$gate = "A";
+			}
+			else if($dep_airport["continent"] == "AF"){
+				$gate = "T";
+			}
+			else $gate = "B";
 			
 			for($i = 0; $i < sizeof($flights);$i++){
 				if($flights[$i]->number==$flightnumber){
 
 					$icao = $flights[$i]->arrival->airport->icao;
-					$arr_name = $this->findAirport($icao);
+					$arr_airport = $this->findAirport($icao);
+					$arr_name = $arr_airport["name"];
 
 					$dep_time = $flights[$i]->departure->scheduledTimeLocal;
 					$checkin = $flights[$i]->departure->checkInDesk;
@@ -66,10 +76,11 @@
 								"arr_name" => $arr_name,
 								"dep_time" => $dep_time,
 								"checkin" => $checkin,
+								"gate" => $gate,
 								"status" => $status,
 								"airline" => $airline
 							];
-
+					
 					return $flight;
 				}
 			}
