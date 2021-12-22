@@ -8,7 +8,8 @@
     $users = $database->getData("accounts");
     var_dump($users);
     for($i = 0; $i < sizeof($users); $i++){
-        if($users[$i]["email"] == $email && $users[$i]["password"] == $pass) $isAuth = TRUE;
+        if($users[$i]["email"] == $email && $users[$i]["password"] == PASSWORD($pass)) $isAuth = TRUE;
     }
+    var_dump(PASSWORD($pass));
     if($isAuth) header("Location: http://localhost/flightnumb_search.php");
     else echo "Could not login";

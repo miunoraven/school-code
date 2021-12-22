@@ -33,6 +33,13 @@
             return $array;
         } 
 
+        public function getOrderedData($tablename, $order){ //get an array of all the airports ordered on name (for the select on the search pages)
+            $sql = "SELECT * FROM $tablename ORDER BY $tablename.$order ASC";
+            $result = $this->executeQuery($sql); 
+            $array = $result->fetch_all(MYSQLI_ASSOC);  
+            return $array;
+        }
+
         public function addAccount($fname, $lname, $email, $password){ //add user to the accounts
             $sql = "INSERT INTO accounts (`id`, `firstname`, `lastname`, `email`, `password`) VALUES (NULL,\"$fname\", \"$lname\", \"$email\", PASSWORD(\"$password\"));";
             if ($this->conn->query($sql) === TRUE) {
@@ -41,7 +48,6 @@
             else echo "Could not connect to database";
         }
 
-        public addFlight()
     }
 
             // public function getAllData(){    

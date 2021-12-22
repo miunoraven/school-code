@@ -2,7 +2,7 @@
 //database is called in api
     include "database/api.php";
     $database = new Database();
-	$airports = $database->getOrderedAirports();
+	$airports = $database->getOrderedData("`airports`","`name`");
 
     $date = $_POST["departure_date"];
     $flightnumb = $_POST["flightnumb"];
