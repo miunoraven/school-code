@@ -1,7 +1,11 @@
+html, body{
+    margin:0;
+    padding: 0;
+}
+
 #header{
     display: flex;
     justify-content: right;
-    width: 100%;
     background-color: white;
     border-bottom: solid 1px steelblue;
     z-index: 99;
@@ -55,4 +59,8 @@ footer{
 
 .footer_p{
     margin: 30px;
+}
+
+#footer_name{
+    text-align: right;
 }
