@@ -1,0 +1,24 @@
+
+
+.table{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.parking_table {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+.parking_table td, .parking_table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+  
+.parking_table th {
+    background-color: #719ECE;
+    color: white;
+    font-weight: normal;
+    padding: 10px;
+ }

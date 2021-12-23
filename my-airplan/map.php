@@ -6,14 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php include "components/fonts.php"; ?>
         <link rel="stylesheet" href="assets/css/map.css">
-        <title>Test</title>
+        <title>Ground map</title>
     </head>
     <body>
         <?php include "components/navigation.php"; ?>
         <div class="content">
-            <h1>Find your way in the airport</h1>
-            <p>Brussels Airport has 2 Concourses: Schengen flights  depart from gates A, non-Schengen flights depart from gates B and T <br>
-            * Schengen countries are: Austria, Belgium, the Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, the Netherlands, Norway, Poland, Portugal, Slovakia, Slovenia, Spain, Sweden and Switzerland</p>
+            <div class="text_map">
+                <h1>Find your way in the airport</h1>
+                <p >Brussels Airport has 2 Concourses: Schengen flights  depart from gates A, non-Schengen flights depart from gates B and T <br>
+                * Schengen countries are: Austria, Belgium, the Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Italy, Latvia, Liechtenstein, Lithuania, Luxembourg, Malta, the Netherlands, Norway, Poland, Portugal, Slovakia, Slovenia, Spain, Sweden and Switzerland</p>
+            </div>
             <nav id="maps">
                 <button class="nav_button" onclick="changePicture('gateA.png')">Gate A/T</button>
                 <button class="nav_button" onclick="changePicture('gateB.png')">Gate B</button>

@@ -9,15 +9,26 @@ body {
 .content {
     display: flex;
     justify-content: center;
-    align-content:flex-end;
+    align-items:center;
     flex-direction: column;
-    margin: 0 auto;
     width: 100%;
     font-family: 'Outfit', sans-serif;
+}
+.text_map{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
 }
 
 h1{
     text-align: center;
+}
+
+p{
+    text-align: justify;
+    width: 65%;
 }
 
 #maps{
