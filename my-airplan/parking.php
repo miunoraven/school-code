@@ -10,7 +10,7 @@
     </head>
     <body>
         <?php include "components/navigation.php"; ?>
-        <div class="content">
+        <div class="content top-padding">
             <h1>Parkings</h1>
             <div class="pair">
                 <div class="information">
