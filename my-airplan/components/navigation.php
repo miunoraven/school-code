@@ -1,7 +1,9 @@
 <header>
     <div id="header">
+        <div id="logo_img_div">
+            <img src="assets/images/airplan_logo_border.png" alt="logo" id="logo_img">
+        </div>
         <div id="logo">
-            <img src="assets/images/airplan_logo.png" alt="logo" id="logo_img">
             <p id="airplan">My Airplan</p>
         </div>   
         <nav class="navigation">

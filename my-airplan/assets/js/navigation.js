@@ -1,5 +1,5 @@
 window.onscroll = function() {lockHeader()};
-var header = document.getElementById("header");
+var header = document.querySelector("header");
 
 // offset positie van de header
 var lock = header.offsetTop;

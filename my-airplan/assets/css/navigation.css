@@ -6,10 +6,9 @@ html, body{
 
 #header{
     display: flex;
-    justify-content: right;
-    background-color: white;
+    justify-content: space-around;
+    background-color: #719ECE;
     border-bottom: solid 1px steelblue;
-    z-index: 99;
 }
 
 .navigation{
@@ -21,10 +20,17 @@ html, body{
 
 .nav_link{
     margin: 34px;
-    background-color: #719ECE;
-    color: white;
+    background-color: white;
+    color: #719ECE;
     padding: 10px 20px;
     border-radius: 20px;
+    border: solid 1px #719ECE;
+}
+
+.nav_link:hover{
+    background-color: #719ECE;
+    color: white;
+    border: solid 1px white;
 }
 
 
@@ -35,20 +41,34 @@ html, body{
     width: 50%;
 }
 
+#logo_img_div{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 25%;
+}
+
 #logo_img{
     height: 100px;
+    /* background-color: white; */
 }
 
 #airplan{
-    color: steelblue;
-    font-size: 18pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 48pt;
     font-weight: bold;
+    width: 50%;
+    margin: 10px 10px;
 }
 
 .lock {
-    position: fixed;
+    position: sticky;
     top: 0;
-    width: 100%
+    width: 100%;
+    z-index: 99;
 }
 
 /* css for the footer too */
