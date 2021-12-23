@@ -1,12 +1,10 @@
 window.onscroll = function() {lockHeader()};
-
-// Get the header
 var header = document.getElementById("header");
 
-// Get the offset position of the navbar
+// offset positie van de header
 var lock = header.offsetTop;
 
-// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+//lock class toevoegen bij het scrollen zodat het vast blijft
 function lockHeader() {
   if (window.pageYOffset > lock) {
     header.classList.add("lock");

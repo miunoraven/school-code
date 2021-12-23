@@ -1,22 +1,3 @@
-body{
-    font-family: 'Outfit', sans-serif;
-    color: rgb(39, 74, 102);
-}
-
-h1{
-    color: #719ECE;
-    font-size: 30pt;
-}
-
-h2{
-    color: steelblue;
-    font-size: 24pt;
-}
-
-h3{
-    font-size: 17pt;
-}
-
 .content{
     display: flex;
     align-items: center;

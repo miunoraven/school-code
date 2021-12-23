@@ -7,7 +7,7 @@
     z-index: 99;
 }
 
-nav{
+.navigation{
     display: flex;
     justify-content: right;
     align-content: center;
@@ -45,6 +45,8 @@ nav{
     top: 0;
     width: 100%
 }
+
+/* css for the footer too */
 
 footer{
     display: flex;
