@@ -41,11 +41,15 @@
         }
 
         public function addAccount($fname, $lname, $email, $password){ //add user to the accounts
-            $sql = "INSERT INTO accounts (`id`, `firstname`, `lastname`, `email`, `password`) VALUES (NULL,\"$fname\", \"$lname\", \"$email\", PASSWORD(\"$password\"));";
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO accounts (`id`, `firstname`, `lastname`, `email`, `password`) VALUES (NULL,\"$fname\", \"$lname\", \"$email\", \"$hash\");";
             if ($this->conn->query($sql) === TRUE) {
                 echo "Added";
             }
-            else echo "Could not connect to database";
+            else{
+                echo "Could not connect to database";
+                die();
+            } 
         }
 
     }
