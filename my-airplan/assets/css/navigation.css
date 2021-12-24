@@ -1,0 +1,87 @@
+html, body{
+    margin:0;
+    padding: 0;
+}
+
+
+#header{
+    display: flex;
+    justify-content: space-around;
+    background-color: #719ECE;
+    border-bottom: solid 1px steelblue;
+}
+
+.navigation{
+    display: flex;
+    justify-content: right;
+    align-content: center;
+    width: 25%;
+}
+
+.nav_link{
+    margin: 34px;
+    background-color: white;
+    color: #719ECE;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: solid 1px #719ECE;
+}
+
+.nav_link:hover{
+    background-color: #719ECE;
+    color: white;
+    border: solid 1px white;
+}
+
+
+#logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+#logo_img_div{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 25%;
+}
+
+#logo_img{
+    height: 100px;
+    /* background-color: white; */
+}
+
+#airplan{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 48pt;
+    font-weight: bold;
+    width: 50%;
+    margin: 10px 10px;
+}
+
+.lock {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+}
+
+/* css for the footer too */
+
+footer{
+    display: flex;
+    justify-content: center;
+}
+
+.footer_p{
+    margin: 30px;
+}
+
+#footer_name{
+    text-align: right;
+}

@@ -1,0 +1,57 @@
+.content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+p{
+    text-align: justify;
+}
+
+#floorplan{
+    width: 30%;
+}
+
+.transport{
+    width: 60%;
+}
+
+#taxi, #train{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.text{
+    margin: 20px;
+}
+
+#taxi_pic, #train_pic{
+    width: 50%;
+    border-radius: 20px;
+    opacity: 90%;
+}
+
+.table{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.bus_table {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+.bus_table td, .bus_table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+.bus_table th {
+    background-color: #719ECE;
+    color: white;
+    font-weight: normal;
+    padding: 10px;
+  }
+

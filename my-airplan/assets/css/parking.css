@@ -1,0 +1,54 @@
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pair{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    margin-bottom: 50px;
+}
+
+#interparking{
+    width: 50%;
+    border-radius: 20px;
+    opacity: 90%;
+}
+
+.text{
+    margin-right: 20px;
+}
+
+.information{
+    width: 55%;
+}
+
+
+#parking_img{
+    margin: 50px 20px;
+}
+
+.table{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.parking_table {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+.parking_table td, .parking_table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+  
+.parking_table th {
+    background-color: #719ECE;
+    color: white;
+    font-weight: normal;
+    padding: 10px;
+ }

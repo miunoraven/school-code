@@ -31,7 +31,6 @@ body{
 .content{
     position: relative;
     font-family: 'Outfit', sans-serif;
-
 }
 
 h1{
@@ -69,17 +68,22 @@ h1 .logo{
 
 .signin .forgot_pass{
     font-size: 12pt;
-    margin-left: 450px;
+    margin-top: 10px;
+    margin-left: 300px;
+}
+
+form{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 input {
     font-size: 12pt;
     font-family: 'Outfit', sans-serif;
-    width: 60%;
-    padding: 15px 20px;
-    margin-top: 20px;
-    margin-left: 120px;
-    margin-right: auto; 
+    width: 55%;
+    padding: 15px 20px; 
     border-radius: 10pt;
     outline: none;
     border: 1px solid steelblue;
@@ -92,9 +96,8 @@ input {
     color: white;
     padding: 15px 30px;
     font-size: 15pt;
-    margin-left: 290px;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .signin p{
