@@ -1,7 +1,7 @@
 <?php
     include "database/databases.php";
     $data = new Database();
-	$airports = $data->getOrderedAirports("airports");
+	$airports = $data->getOrderedData("`airports`", "`name`");
 
 ?>
 

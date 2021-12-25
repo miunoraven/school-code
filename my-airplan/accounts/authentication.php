@@ -6,10 +6,13 @@
     $isAuth = FALSE;
     $database = new Database();
     $users = $database->getData("accounts");
-    var_dump($users);
     for($i = 0; $i < sizeof($users); $i++){
-        if($users[$i]["email"] == $email && password_verify($pass, $users[$i]["password"])) $isAuth = TRUE;
-        var_dump(password_verify($users[$i]["password"], $pass));
+        if($users[$i]["email"] == $email && password_verify($pass, $users[$i]["password"])){
+            $user_id = $users[$i]["id"];
+            $isAuth = TRUE;
+        }
     }
-    if($isAuth) header("Location: http://localhost/flightnumb_search.php");
+    if($isAuth) header("Location: http://localhost/flightnumb_search.php?id=".$user_id);
     else echo "Could not login";
+
+    //<?php echo "get_next.php?id=".$id?>
