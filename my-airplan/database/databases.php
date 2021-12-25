@@ -6,7 +6,7 @@
         private $dbName = "airplan"; 
         private $conn;
 
-        // public $arrayUsers;
+        public $user_id;
 
         function __construct() {
             $this->conn = mysqli_connect($this->dbServername, $this->dbUsername, $this->dbPassword, $this->dbName);  
@@ -16,13 +16,6 @@
         {  
             $result = mysqli_query($this->conn, $sql);
             return $result;
-        }
-
-        public function getOrderedAirports(){ //get an array of all the airports ordered on name (for the select on the search pages)
-            $sql = "SELECT * FROM `airports` ORDER BY `airports`.`name` ASC";
-            $result = $this->executeQuery($sql); 
-            $array = $result->fetch_all(MYSQLI_ASSOC);  
-            return $array;
         }
 
         public function getData($tablename)  //get all data from the input table
@@ -50,6 +43,31 @@
                 echo "Could not connect to database";
                 die();
             } 
+        }
+
+        public function addFlight($flight, $airport, $flightnumb){
+            $arr_name = $flight["arr_name"];
+            $dep_time = $flight["dep_time"];
+            $checkin = $flight["checkin"];
+            $status = $flight["status"];
+            $airline = $flight["airline"];
+            $gate = $flight["gate"];
+
+            $sql = "INSERT INTO flight (`flight_id`, `flight_number`, `airport_dep`, `airport_arr`, `time_dep`, `check_in`, `status`, `airline`, `gate`) VALUES (NULL,\"$flightnumb\", \"$airport\", \"$arr_name\", \"$dep_time\", \"$checkin\", \"$status\", \"$airline\", \"$gate\");";
+            if ($this->conn->query($sql) === TRUE) {
+                $flight_id_query = "SELECT flight_id FROM flight WHERE user_id LIKE NULL;";
+                $result = $this->executeQuery($flight_id_query);
+                $flight_id = $result->fetch_all(MYSQLI_ASSOC);
+                var_dump($flight_id);
+            }
+            else{
+                echo "Could not connect to database";
+                die();
+            }
+        }
+
+        public function addUserID($user_id){
+            $flight_id = "SELECT flight_id FROM flight WHERE user_id LIKE NULL;";
         }
 
     }

@@ -1,8 +1,8 @@
 <?php
 //database is called in api
     include "database/api.php";
-    $database = new Database();
-	$airports = $database->getOrderedData("`airports`","`name`");
+
+    $user_id = $_GET["id"];
 
     $date = $_POST["departure_date"];
     $flightnumb = $_POST["flightnumb"];
@@ -33,7 +33,13 @@
             <li><?php echo $flight["status"]; ?></li>
             <li><?php echo $flight["airline"]; ?></li>
         </ul>
-        <button type="submit" id="add_account" onclick="addFlight()">Add flight</button>
+        <?php
+            $data = new Database();
+            $data->addFlight($flight, $airport, $flightnumb);
+        ?>
+        <form action="add_flight.php" method="post">        
+            <input type="submit" value="Add flight to my flights">
+        </form>
     </body>
 </html>
 

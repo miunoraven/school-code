@@ -1,8 +1,8 @@
 <?php
     include "database/databases.php";
     $data = new Database();
-	$airports = $data->getOrderedAirports("airports");
-
+	$airports = $data->getOrderedData("`airports`", "`name`");
+    $id = $_GET["id"];
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
     </head>
     <body>
         <div class="content">
-            <form action="search_flight.php" method="post">
+            <form action="<?php echo "search_flight.php?id=".$id?>" method="post">
                 <label>Flight number</label> <br>
                 <input type="text" name="flightnumb" id="flightnumb" placeholder="e.g. XX 0000"> <br>
                 <label>Where from?</label> <br>
