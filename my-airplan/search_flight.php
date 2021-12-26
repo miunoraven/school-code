@@ -37,7 +37,7 @@
             $data = new Database();
             $data->addFlight($flight, $airport, $flightnumb);
         ?>
-        <form action="add_flight.php" method="post">        
+        <form action="components/add_flight.php?id=<?php echo $user_id?>" method="post">        
             <input type="submit" value="Add flight to my flights">
         </form>
     </body>
