@@ -5,9 +5,8 @@
         private $dbPassword = "root";
         private $dbName = "airplan"; 
         private $conn;
-        // private $conn;
 
-        // public $arrayUsers;
+        public $user_id;
 
         function __construct() {
             $this->conn = mysqli_connect($this->dbServername, $this->dbUsername, $this->dbPassword, $this->dbName);  
@@ -19,7 +18,7 @@
             return $result;
         }
 
-        public function getData($tablename)  
+        public function getData($tablename)  //get all data from the input table
         {  
             $sql = "SELECT * FROM $tablename;";  
             $result = $this->executeQuery($sql); 
@@ -27,13 +26,61 @@
             return $array;
         } 
 
-        public function addAccount($fname, $lname, $email, $password){
-            $sql = "INSERT INTO accounts (`id`, `firstname`, `lastname`, `email`, `password`) VALUES (NULL,\"$fname\", \"$lname\", \"$email\", \"$password\");";
+        public function getOrderedData($tablename, $order){ //get an array of all the airports ordered on name (for the select on the search pages)
+            $sql = "SELECT * FROM $tablename ORDER BY $tablename.$order ASC";
+            $result = $this->executeQuery($sql); 
+            $array = $result->fetch_all(MYSQLI_ASSOC);  
+            return $array;
+        }
+
+        public function addAccount($fname, $lname, $email, $password){ //add user to the accounts
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO accounts (`id`, `firstname`, `lastname`, `email`, `password`) VALUES (NULL,\"$fname\", \"$lname\", \"$email\", \"$hash\");";
             if ($this->conn->query($sql) === TRUE) {
                 echo "Added";
             }
-            else echo "Could not connect to database";
+            else{
+                echo "Could not connect to database";
+                die();
+            } 
         }
+
+        public function addFlight($flight, $airport, $flightnumb){
+            $arr_name = $flight["arr_name"];
+            $dep_time = $flight["dep_time"];
+            $checkin = $flight["checkin"];
+            $status = $flight["status"];
+            $airline = $flight["airline"];
+            $gate = $flight["gate"];
+
+
+            $delete_flight = "DELETE FROM flight WHERE user_id IS NULL;"; //delete if flight doesnt have a user
+            if($this->conn->query($delete_flight) === FALSE){
+                echo "Could not delete flights";
+                die();
+            }
+
+            $sql = "INSERT INTO flight (`flight_id`, `flight_number`, `airport_dep`, `airport_arr`, `time_dep`, `check_in`, `status`, `airline`, `gate`) VALUES (NULL,\"$flightnumb\", \"$airport\", \"$arr_name\", \"$dep_time\", \"$checkin\", \"$status\", \"$airline\", \"$gate\");";
+            if ($this->conn->query($sql) === FALSE) {
+                echo "Could not connect to database";
+                die();
+            }
+        }
+
+        public function addUserID($user_id){
+
+            $flight_sql = "SELECT flight_id FROM flight WHERE user_id IS NULL;";
+            $result = $this->executeQuery($flight_sql);
+            $flight_id_arr = mysqli_fetch_array($result);
+            $flight_id = $flight_id_arr[0];
+
+            echo "this is the flight id: ";
+            var_dump($flight_id);
+
+            $sql = "UPDATE flight SET user_id = \"$user_id\" WHERE flight_id = \"$flight_id\";";
+            $result = $this->executeQuery($sql);
+        }
+
     }
 
             // public function getAllData(){    

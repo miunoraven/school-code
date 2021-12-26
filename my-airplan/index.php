@@ -14,16 +14,16 @@
                 <h1>My Airplan <img src="assets/images/airplan_logo.png" alt="logo" class="logo"></h1>                
                 <div class="signin">
                     <h2>Sign in</h2>
-                    <form method="post" action="authentication.php">
+                    <form method="post" action="accounts/authentication.php">
                         <input type="email" id="input-email" name="email" placeholder="E-mail" required>
                         <br> <br>
                         <input type="password" id="input-pass" name="pass" placeholder="Password" required>
                         <div class="error"></div>
-                        <a href="#" class="forgot_pass">Forgot password?</a>
+                        <a href="#" class="forgot_pass">Forgot password?</a> <!-- FIX THIS -->
                         <br> <br>
                         <input type="submit" class="button-signin" value="Sign in"/> <br>
                     </form>
-                    <p>No account yet? <a href="register.php" class="register">Register</a></p>
+                    <p>No account yet? <a href="register.php" class="register">Register</a></p> 
                 </div>
             </div>
         </div>

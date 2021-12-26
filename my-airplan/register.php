@@ -15,7 +15,7 @@
                 
                 <div class="register">
                     <h2>Make a new account</h2>
-                    <form action="add_acc.php" method="post">
+                    <form action="accounts/add_acc.php" method="post">
                         <input type="text" name="firstname" id="firstname" placeholder="Firstname" required>
                         <br> 
                         <input type="text" name="lastname" id="lastname" placeholder="Lastname" required>
@@ -30,7 +30,7 @@
                         <input type="password" id="input-conf-pass" name="conf_pass" placeholder="Confirm password" required>
                         <div class="error_pass"></div>
                         <br>
-                        <input type="submit" value="signin" class="button-register">
+                        <input type="submit" value="Register" class="button-register">
                     </form>
                     <p>Already have an account? <a href="index.php" class="signin">Sign in</a></p>
                 </div>
