@@ -74,6 +74,11 @@ select{
     margin: 20px;
 }
 
+.button-find:hover{
+    background-color: white;
+    color:#719ECE;
+}
+
 .changepage{
     font-size: 15pt;
     font-weight: bold;

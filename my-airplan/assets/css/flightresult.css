@@ -37,3 +37,23 @@ body{
     align-items: center;
     margin: 20px;
 }
+
+.button {
+    font-family: 'Outfit', sans-serif;
+    background-color: #719ECE;
+    outline: none;
+    border: 1px solid steelblue;;
+    box-shadow: 0 0 10px #719ECE;
+    border-radius: 10pt;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 15pt;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.button:hover{
+    background-color: white;
+    color:#719ECE;
+}

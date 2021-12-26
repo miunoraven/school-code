@@ -38,7 +38,6 @@
                     <p class="changepage">No flight number? <a href="dest_search.php?id=<?php echo $id?>">Look by destination</a></p>
                 </div>
                 <?php include "components/footer.php";?>
-
             </div>
         </div>
     </body>
