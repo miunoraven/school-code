@@ -53,21 +53,32 @@
             $airline = $flight["airline"];
             $gate = $flight["gate"];
 
-            $sql = "INSERT INTO flight (`flight_id`, `flight_number`, `airport_dep`, `airport_arr`, `time_dep`, `check_in`, `status`, `airline`, `gate`) VALUES (NULL,\"$flightnumb\", \"$airport\", \"$arr_name\", \"$dep_time\", \"$checkin\", \"$status\", \"$airline\", \"$gate\");";
-            if ($this->conn->query($sql) === TRUE) {
-                $flight_id_query = "SELECT flight_id FROM flight WHERE user_id LIKE NULL;";
-                $result = $this->executeQuery($flight_id_query);
-                $flight_id = $result->fetch_all(MYSQLI_ASSOC);
-                var_dump($flight_id);
+
+            $delete_flight = "DELETE FROM flight WHERE user_id IS NULL;"; //delete if flight doesnt have a user
+            if($this->conn->query($delete_flight) === FALSE){
+                echo "Could not delete flights";
+                die();
             }
-            else{
+
+            $sql = "INSERT INTO flight (`flight_id`, `flight_number`, `airport_dep`, `airport_arr`, `time_dep`, `check_in`, `status`, `airline`, `gate`) VALUES (NULL,\"$flightnumb\", \"$airport\", \"$arr_name\", \"$dep_time\", \"$checkin\", \"$status\", \"$airline\", \"$gate\");";
+            if ($this->conn->query($sql) === FALSE) {
                 echo "Could not connect to database";
                 die();
             }
         }
 
         public function addUserID($user_id){
-            $flight_id = "SELECT flight_id FROM flight WHERE user_id LIKE NULL;";
+
+            $flight_sql = "SELECT flight_id FROM flight WHERE user_id IS NULL;";
+            $result = $this->executeQuery($flight_sql);
+            $flight_id_arr = mysqli_fetch_array($result);
+            $flight_id = $flight_id_arr[0];
+
+            echo "this is the flight id: ";
+            var_dump($flight_id);
+
+            $sql = "UPDATE flight SET user_id = \"$user_id\" WHERE flight_id = \"$flight_id\";";
+            $result = $this->executeQuery($sql);
         }
 
     }

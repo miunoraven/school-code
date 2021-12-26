@@ -1,6 +1,6 @@
 <?php
-    if(isset($_POST["submit"])){
-        echo "AHAHAHAHAHHAHAHAHAH";
-        $database = new Database();
-        $database->addFlight($flight, $user_id, $airport, $flightnumb);
-    }
+    include "../database/databases.php";
+    $id = $_GET["id"];
+    $database = new Database();
+    $database->addUserID($id);
+    header("Location: http://localhost/main.php?id=$id/");
