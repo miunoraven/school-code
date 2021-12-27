@@ -38,6 +38,46 @@ body{
     margin: 20px;
 }
 
+.ticket{
+    background-color: white;
+    margin: 10px 20px;
+    font-weight: bold;
+    border-radius: 10pt;
+}
+
+#route{
+    display: flex;
+    justify-content: space-around;
+    font-size: 15pt;
+}
+
+
+#boardingpass{
+    background-color: #719ECE;
+    border-top-radius: 25px;
+    color: white;
+    padding: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#info{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.rout_text{
+    margin-top: 0;
+    padding: 20px 30px;
+    text-align: left;
+}
+
+.result{
+    text-align: center;
+    padding: 10px;
+}
+
 .button {
     font-family: 'Outfit', sans-serif;
     background-color: #719ECE;

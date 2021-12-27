@@ -12,6 +12,10 @@
     $api->getJSon($date."T06:00",$date."T18:00", $airport);
     $flight = $api->findFlight($flightnumb, $airport);
 
+    $output = $flight["dep_time"];
+    list($date, $time) = explode(" ", $output);
+    list($dep, $delay) = explode("+", $time);
+
 ?>
 
 <!DOCTYPE html>
@@ -30,15 +34,20 @@
                 <?php include "components/navigation.php"; ?>
                 <div class="content">
                     <h1>Result for <?php echo $flightnumb; ?></h1>
-                    <ul>
-                        <li>From <?php echo $flight["dep_name"]; ?></li>
-                        <li>To <?php echo $flight["arr_name"]; ?></li>
-                        <li>Departure on <?php echo $flight["dep_time"]; ?></li>
-                        <li>Gate <?php echo $flight["gate"]; ?></li>
-                        <li>Check-in <?php echo $flight["checkin"]; ?></li>
-                        <li><?php echo $flight["status"]; ?></li>
-                        <li><?php echo $flight["airline"]; ?></li>
-                    </ul>
+                    <div class="ticket">
+                        <h3 id="boardingpass">Boarding Pass</h3>
+                        <div id="route">
+                            <p class="rout_text" id="dest"><span style="font-size: 12pt;">From </span><br><?php echo $flight["dep_name"]; ?></p>
+                            <p class="rout_text" id="arr"><span style="font-size: 12pt;">To </span> <br><?php echo $flight["arr_name"]; ?></p>
+                            <p class="rout_text" id="time"><span style="font-size: 12pt;">Departure on </span><br><?php echo $dep; ?></p>
+                        </div>
+                        <div id="info">
+                            <p class="result" id="gate">Gate <br><?php echo $flight["gate"]; ?></p>
+                            <p class="result" id="checkin">Check-in <br><?php echo $flight["checkin"]; ?></p>
+                            <p class="result" id="status"><?php echo $flight["status"]; ?></p>
+                            <p class="result" id="airline"><?php echo $flight["airline"]; ?></p>
+                        </div>
+                    </div>
                     <?php
                         $data = new Database();
                         $data->addFlight($flight, $airport, $flightnumb);
