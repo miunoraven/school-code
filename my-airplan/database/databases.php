@@ -33,11 +33,25 @@
             return $array;
         }
 
-        public function getLastAdded($tablename, $order){ 
-            $sql = "SELECT * FROM $tablename ORDER BY $tablename.$order DESC";
+        public function getLastAdded($tablename, $id){ 
+            $sql = "SELECT * FROM $tablename ORDER BY $tablename.$id DESC";
             $result = $this->executeQuery($sql); 
             $array = $result->fetch_all(MYSQLI_ASSOC);  
             return $array[0];
+        }
+
+        public function getFlights($id){
+            $sql = "SELECT * FROM `flight` WHERE user_id LIKE $id";
+            $result = $this->executeQuery($sql); 
+            $array = $result->fetch_all(MYSQLI_ASSOC);  
+            return $array;
+        }
+
+        public function getAirport($icao){
+            $sql = "SELECT `name` FROM `airports` WHERE icao = \"$icao\" LIMIT 1;";
+            $result = $this->executeQuery($sql);
+            $array = $result->fetch_all(MYSQLI_ASSOC);
+            return $array;
         }
 
         public function addAccount($fname, $lname, $email, $password){ //add user to the accounts
@@ -78,7 +92,7 @@
         }
 
         public function addUserID($user_id){
-            $flight_id_arr = $this->getOrderedData("`flight`", "`flight_id`");
+            $flight_id_arr = $this->getLastAdded("`flight`", "`flight_id`");
             $flight_id = $flight_id_arr["flight_id"];
 
             $sql = "UPDATE flight SET user_id = \"$user_id\" WHERE flight_id = \"$flight_id\";";

@@ -42,10 +42,8 @@
                             <p class="rout_text" id="time"><span style="font-size: 12pt;">Departure on </span><br><?php echo $dep; ?></p>
                         </div>
                         <div id="info">
-                            <p class="result" id="gate">Gate <br><?php echo $flight["gate"]; ?></p>
-                            <p class="result" id="checkin">Check-in <br><?php echo $flight["checkin"]; ?></p>
-                            <p class="result" id="status"><?php echo $flight["status"]; ?></p>
-                            <p class="result" id="airline"><?php echo $flight["airline"]; ?></p>
+                            <p class="result" id="status">Status: <?php echo $flight["status"]; ?></p>
+                            <p class="result" id="airline">Airline: <?php echo $flight["airline"]; ?></p>
                         </div>
                     </div>
                     <?php
