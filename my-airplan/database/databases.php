@@ -33,6 +33,13 @@
             return $array;
         }
 
+        public function getLastAdded($tablename, $order){ 
+            $sql = "SELECT * FROM $tablename ORDER BY $tablename.$order DESC";
+            $result = $this->executeQuery($sql); 
+            $array = $result->fetch_all(MYSQLI_ASSOC);  
+            return $array[0];
+        }
+
         public function addAccount($fname, $lname, $email, $password){ //add user to the accounts
             $hash = password_hash($password, PASSWORD_DEFAULT);
             $sql = "INSERT INTO accounts (`id`, `firstname`, `lastname`, `email`, `password`) VALUES (NULL,\"$fname\", \"$lname\", \"$email\", \"$hash\");";
@@ -71,14 +78,8 @@
         }
 
         public function addUserID($user_id){
-
-            $flight_sql = "SELECT flight_id FROM flight WHERE user_id IS NULL;";
-            $result = $this->executeQuery($flight_sql);
-            $flight_id_arr = mysqli_fetch_array($result);
-            $flight_id = $flight_id_arr[0];
-
-            echo "this is the flight id: ";
-            var_dump($flight_id);
+            $flight_id_arr = $this->getOrderedData("`flight`", "`flight_id`");
+            $flight_id = $flight_id_arr["flight_id"];
 
             $sql = "UPDATE flight SET user_id = \"$user_id\" WHERE flight_id = \"$flight_id\";";
             $result = $this->executeQuery($sql);

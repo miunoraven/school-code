@@ -54,7 +54,8 @@ body{
 
 #boardingpass{
     background-color: #719ECE;
-    border-top-radius: 25px;
+    border-top-left-radius: 10pt;
+    border-top-right-radius: 10pt;
     color: white;
     padding: 10px;
     margin-top: 0;
