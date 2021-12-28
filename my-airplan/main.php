@@ -6,6 +6,20 @@
 
     $flights = $database->getFlights($id);
 
+    function calcTime($departure, $time){
+        list($hour, $minutes) = explode(":", $departure);
+        if($minutes < $time){
+            $minutes += (60-$time);
+            $hour -= 1;
+        }
+        else if($minutes == $time) $minutes = "00";
+        else if($minutes == $time+5) $minutes = "05";
+        else $minutes -= $time;
+        if(sizeof($hour)==1) echo "0" . $hour . ":" . $minutes;
+        else echo $hour . ":" . $minutes;
+
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,10 +68,13 @@
                                     <h3>At Home</h3>
                                     <div class="corona">
                                         <h4>Corona measures</h4>
-                                        <p class="corona_info">Make sure that you check which COVID-19 safety rules are applied to the country that you are traveling to. Make sure you have prepared all needed documents on time (Personal Health Fiche, vaccination certificate, PCR test results...). <br>
-                                        In case you want to register for a PCR test on the aiport <a href="https://brusselsairport.ecocare.center/">register here</a>.
+                                        <p class="corona_info">Make sure that you check which <span style="font-weight:bold">COVID-19</span> safety rules are applied to the country that you are traveling to. Make sure you have prepared all needed documents on time (Personal Health Fiche, vaccination certificate, PCR test results...). <br>
+                                        In case you want to register for a <span style="font-weight:bold">PCR test on the aiport</span> <a href="https://brusselsairport.ecocare.center/">register here</a>.
                                     </p>
                                     </div>
+                                </div>
+                                <div class="transprot">
+                                    <h3>Transport</h3>
                                     <div class="parking">
                                         <a href="parking.php" class="home_a">Parkings</a>
                                     </div>
@@ -66,7 +83,8 @@
                                     </div>
                                 </div>
                                 <div class="checkin">
-                                    <a href="map.php"><img src="assets/images/pin_map.png" alt="pin" id="pin" height="50px"></a>
+                                    <h3>Check in / Drop off</h3>
+                                    <a href="map.php?id=<?php echo $id; ?>"><img src="assets/images/pin_map.png" alt="pin" id="pin" height="50px"></a>
                                     <p>Check in <br><?php echo $flight["check_in"]; ?></p>
                                     <p>Open <br> <?php
                                         list($hour, $minutes) = explode(":", $dep);
@@ -76,20 +94,27 @@
                                     </p>
                                     <p>Close <br>
                                     <?php 
-                                        list($hour, $minutes) = explode(":", $dep);
-                                        if($minutes < 40){
-                                            $minutes += 20;
-                                            $hour -= 1;
-                                        }
-                                        else if($minutes == 40) $minutes = "00";
-                                        else if($minutes == 45) $minutes = "05";
-                                        else $minutes -= 40;
-                                        if(sizeof($hour)==1) echo "0" . $hour . ":" . $minutes;
-                                        else echo $hour . ":" . $minutes;
+                                        calcTime($dep, 40);
                                     ?> </p>
                                 </div>
                                 <div class="security">
-                                    
+                                    <h3>Security</h3>
+                                    <img src="assets/images/security.jpeg" alt="security" class="security_img" height="300px">
+                                </div>
+                                <div class="freetime">
+                                    <h3>Free time</h3>
+                                    <img src="assets/images/dutyfree_a.jpg" alt="dutyfree_a" class="dutyfree_a" height="200px">
+                                    <a href="map.php?id=<?php echo $id; ?>"><img src="assets/images/pin_map.png" alt="pin" id="pin" height="50px"></a>
+                                </div>
+                                <div class="gate">
+                                    <h3>Boarding</h3>
+                                    <p>Gate<br><?php echo $flight["gate"]; ?></p>
+                                    <p>Start boarding<br><?php
+                                        calcTime($dep, 30);                                                                                                      
+                                    ?></p>
+                                    <p>Closing boarding<br><?php
+                                        calcTime($dep, 10);                                                                                                      
+                                    ?></p>
                                 </div>
                             </div>
                         <?php
