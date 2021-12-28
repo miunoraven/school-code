@@ -82,11 +82,8 @@
             }
 
             $sql = "INSERT INTO flight (`flight_id`, `flight_number`, `airport_dep`, `airport_arr`, `time_dep`, `check_in`, `status`, `airline`, `gate`) VALUES (NULL,\"$flightnumb\", \"$airport\", \"$arr_name\", \"$dep_time\", \"$checkin\", \"$status\", \"$airline\", \"$gate\");";
-            if ($this->conn->query($sql) === TRUE) {
-                
-            }
-            else{
-                echo "Could not connect to database";
+            if ($this->conn->query($sql) === FALSE) {
+                echo "Could not insert flight";
                 die();
             }
         }

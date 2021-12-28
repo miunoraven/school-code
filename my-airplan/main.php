@@ -15,8 +15,8 @@
         else if($minutes == $time) $minutes = "00";
         else if($minutes == $time+5) $minutes = "05";
         else $minutes -= $time;
-        if(sizeof($hour)==1) echo "0" . $hour . ":" . $minutes;
-        else echo $hour . ":" . $minutes;
+        if(strlen($hour)==1) echo "<span class=\"bold_text\">0" . $hour . ":" . $minutes . "</span>";
+        else echo "<span class=\"bold_text\">" . $hour . ":" . $minutes . "</span>";
 
     }
 
@@ -63,8 +63,10 @@
                                     <p class="result" id="airline"><span class="title_info">Airline</span><br><?php echo $flight["airline"]; ?></p>
                                 </div>
                             </div>
+
                             <button type="button" class="collapsible">More information</button>
                             <div class="collapse_div">
+
                                 <div class="corona collaps_info">
                                     <div class="text_info">
                                         <h3>Corona measures</h3>
@@ -74,51 +76,86 @@
                                     </div>
                                     <img src="assets/images/pcr_center.jpg" alt="pcr" class="pcr" height="200px">
                                 </div>
+
                                 <div class="transport collapse_info">
-                                    <h3>Transport</h3>
+                                    <div class="title">
+                                        <a href="map.php?id=<?php echo $id; ?>" class="link_img"><img src="assets/images/pin_map.png" alt="pin" id="pin" height="50px"></a>
+                                        <h3 class="checkin_h3">Transport</h3>
+                                    </div>
                                     <div class="transport_links">
-                                        <a href="parking.php?id=<?php echo $id; ?>" class="transport_a">Parkings</a>
-                                        <a href="transport.php?id=<?php echo $id; ?>" class="transport_a">Public transport</a>
+                                        <div class="publictransport">
+                                            <div class="image">
+                                                <img src="assets/images/bus_picto.png" alt="bus" class="bus" height="auto" width="100px">
+                                                <img src="assets/images/train_picto.png" alt="train" class="train" height="auto" width="100px">
+                                            </div>
+                                            <a href="transport.php?id=<?php echo $id; ?>" class="transport_a">Public transport</a>
+                                        </div>
+                                        <div class="parking">
+                                            <div class="image">
+                                                <img src="assets/images/car_picto.png" alt="car" class="car" height="auto" width="100px">
+                                            </div>
+                                            <a href="parking.php?id=<?php echo $id; ?>" class="transport_a">Parkings</a>
+                                        </div>
                                     </div>
                                 </div>
+
                                 <div class="checkin collapse_info">
-                                    <h3>Check in / Drop off</h3>
-                                    <a href="map.php?id=<?php echo $id; ?>"><img src="assets/images/pin_map.png" alt="pin" id="pin" height="50px"></a>
-                                    <p>Check in <br><?php echo $flight["check_in"]; ?></p>
-                                    <p>Open <br> <?php
-                                        list($hour, $minutes) = explode(":", $dep);
-                                        $hour -= 3;
-                                        if(sizeof($hour)==1) echo "0" . $hour . ":" . $minutes;
-                                        else echo $hour . ":" . $minutes; ?>
-                                    </p>
-                                    <p>Close <br>
-                                    <?php 
-                                        calcTime($dep, 40);
-                                    ?> </p>
+                                    <div class="title">
+                                        <a href="map.php?id=<?php echo $id; ?>" class="link_img"><img src="assets/images/pin_map.png" alt="pin" id="pin" height="50px"></a>
+                                        <h3 class="checkin_h3">Check in / Drop off</h3>
+                                    </div>
+                                    <div class="checkin_info">
+                                        <p class="result">Check in<br><span class="bold_text"> <?php echo $flight["check_in"]; ?></p>
+                                        <p class="result">Open at<br> <?php
+                                            list($hour, $minutes) = explode(":", $dep);
+                                            $hour -= 3;
+                                            if(strlen($hour)==1) echo "<span class=\"bold_text\">0" . $hour . ":" . $minutes. "</span>";
+                                            else echo "<span class=\"bold_text\">" . $hour . ":" . $minutes . "</span>"; ?>
+                                        </span></p>
+                                        <p class="result">Close at<br>
+                                        <?php 
+                                            calcTime($dep, 40);
+                                        ?> </p>
+                                    </div>
                                 </div>
+
                                 <div class="security collapse_info">
-                                    <h3>Security</h3>
-                                    <img src="assets/images/security.jpeg" alt="security" class="security_img" height="300px">
+                                    <h3 class="title_h3">Security</h3>
+                                    <div class="image_security">
+                                        <img src="assets/images/security.jpeg" alt="security" class="security_img" width="90%">
+                                    </div>
                                 </div>
+
                                 <div class="freetime collapse_info">
-                                    <h3>Free time</h3>
+                                    <div class="text_info">
+                                        <div class="title_freetime">
+                                            <a href="map.php?id=<?php echo $id; ?>" class="link_img"><img src="assets/images/pin_map.png" alt="pin" id="pin" height="50px"></a>
+                                            <h3 class="checkin_h3">Free time</h3>
+                                        </div>
+                                        <p>If you have some free time there are countless shops after the security in both gates. While you wait for boarding you can relax and shop in duty free shops or sit back with some coffee at the bars</p>
+                                    </div>
                                     <img src="assets/images/dutyfree_a.jpg" alt="dutyfree_a" class="dutyfree_a" height="200px">
-                                    <a href="map.php?id=<?php echo $id; ?>"><img src="assets/images/pin_map.png" alt="pin" id="pin" height="50px"></a>
                                 </div>
+
                                 <div class="gate collapse_info">
-                                    <h3>Boarding</h3>
-                                    <p>Gate<br><?php echo $flight["gate"]; ?></p>
-                                    <p>Start boarding<br><?php
-                                        calcTime($dep, 30);                                                                                                      
-                                    ?></p>
-                                    <p>Closing boarding<br><?php
-                                        calcTime($dep, 10);                                                                                                      
-                                    ?></p>
+                                    <h3 class="title_h3">Boarding</h3>
+                                    <div class="boarding_info">
+                                    <p class="result">Gate<br><span class="bold_text"> <?php echo $flight["gate"]; ?></p>
+                                        <p class="result">Start boarding<br><?php
+                                            calcTime($dep, 30);                                                                                                      
+                                        ?></p>
+                                        <p class="result">Closing boarding<br><?php
+                                            calcTime($dep, 10);                                                                                                      
+                                        ?></p>
+                                    </div>
                                 </div>
                             </div>
                         <?php
                         }
                         ?>
+                    </div>
+                    <div class="add_flight">
+                        <a href="flightnumb_search.php?id=<?php echo $id;?>" class="add_button">Add a new flight</a>
                     </div>
                 </div>
                 <?php include "components/footer.php";?>
