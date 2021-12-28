@@ -12,7 +12,7 @@
         $database->addAccount($firstname, $lastname, $email, $pass);
         $user = $database->getLastAdded("`accounts`","`id`");
         $user_id = $user["id"];
-        header("Location: http://localhost/flightnumb_search.php?id=$user_id");
+        header("Location: https://airport.miunoraven.be/flightnumb_search.php?id=$user_id");
     }
     else echo "Could not make an new account";
 

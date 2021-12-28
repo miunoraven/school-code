@@ -1,9 +1,9 @@
 <?php
     class Database {
-        private $dbServername = "localhost";
-        private $dbUsername = "root";
-        private $dbPassword = "root";
-        private $dbName = "airplan"; 
+        private $dbServername = "ID366454_Airplan.db.webhosting.be";
+        private $dbUsername = "ID366454_Airplan";
+        private $dbPassword = "secretpassword1";
+        private $dbName = "ID366454_Airplan"; 
         private $conn;
 
         public $user_id;

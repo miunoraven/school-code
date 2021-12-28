@@ -17,11 +17,11 @@
         $has_ticket = FALSE;
         for($j = 0; $j < sizeof($flights); $j++){
             if($flights[$j]["user_id"] == $user_id){
-                header("Location: http://localhost/main.php?id=$user_id");
+                header("Location: https://airport.miunoraven.be/main.php?id=$user_id");
                 $has_ticket = TRUE;
             }
         }
-        if(!$has_ticket) header("Location: http://localhost/flightnumb_search.php?id=$user_id");
+        if(!$has_ticket) header("Location: https://airport.miunoraven.be/flightnumb_search.php?id=$user_id");
     } 
     else echo "Could not login";
 
