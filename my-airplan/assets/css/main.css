@@ -34,15 +34,26 @@ body{
 .content{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin: 20px;
+}
+.tickets_div{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
 }
 
 .ticket{
     background-color: white;
     margin: 10px 20px;
+    margin-bottom: 0;
     font-weight: bold;
-    border-radius: 10pt;
+    width: 100%;
+    border-top-left-radius: 10pt;
+    border-top-right-radius: 10pt;
 }
 
 #route{
@@ -72,16 +83,24 @@ body{
     margin-top: 0;
     padding: 20px 30px;
     text-align: left;
+    font-size: 22pt;
 }
 
 .result{
     text-align: center;
     padding: 10px;
+    font-size: 20pt;
+    margin-top: 0;
+}
+
+.title_info{
+    font-size: 15pt;
+    color: #719ECE;
 }
 
 
-.collapsible {
-    background-color: #777;
+.active, .collapsible {
+    background-color: #719ECE;
     color: white;
     cursor: pointer;
     padding: 18px;
@@ -89,16 +108,60 @@ body{
     border: none;
     text-align: left;
     outline: none;
-    font-size: 15px;
+    font-size: 15pt;
+    font-family: 'Outfit', sans-serif;
+    border-bottom-left-radius: 10pt;
+    border-bottom-right-radius: 10pt;
 }
 
-.active, .collapsible:hover {
-    background-color: #555;
+.active{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.collapsible:hover {
+    background-color: steelblue;
 }
   
 .collapse_div {
-    padding: 0 18px;
     display: none;
     overflow: hidden;
     background-color: #f1f1f1;
+    width: 100%;
+}
+
+.collapse_info{
+    padding: 15px 20px;
+}
+
+.corona{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 15px 30px;
+}
+.pcr{
+    margin: 20px;
+    border-radius: 5pt;
+}
+
+.transport_links{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.transport_a{
+    font-family: 'Outfit', sans-serif;
+    font-size: 13pt;
+    background-color: #719ECE;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 20px 10px;
+    border-radius: 20px;
+    border: solid 1px #719ECE;
+}
+
+.transport_a:hover{
+    background-color: white;
+    color: #719ECE;
 }
