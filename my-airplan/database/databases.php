@@ -1,9 +1,9 @@
 <?php
     class Database {
-        private $dbServername = "localhost";
-        private $dbUsername = "root";
-        private $dbPassword = "root";
-        private $dbName = "airplan"; 
+        private $dbServername = "ID366454_Airplan.db.webhosting.be";
+        private $dbUsername = "ID366454_Airplan";
+        private $dbPassword = "secretpassword1";
+        private $dbName = "ID366454_Airplan"; 
         private $conn;
 
         public $user_id;
@@ -30,6 +30,27 @@
             $sql = "SELECT * FROM $tablename ORDER BY $tablename.$order ASC";
             $result = $this->executeQuery($sql); 
             $array = $result->fetch_all(MYSQLI_ASSOC);  
+            return $array;
+        }
+
+        public function getLastAdded($tablename, $id){ 
+            $sql = "SELECT * FROM $tablename ORDER BY $tablename.$id DESC";
+            $result = $this->executeQuery($sql); 
+            $array = $result->fetch_all(MYSQLI_ASSOC);  
+            return $array[0];
+        }
+
+        public function getFlights($id){
+            $sql = "SELECT * FROM `flight` WHERE user_id LIKE $id";
+            $result = $this->executeQuery($sql); 
+            $array = $result->fetch_all(MYSQLI_ASSOC);  
+            return $array;
+        }
+
+        public function getAirport($icao){
+            $sql = "SELECT `name` FROM `airports` WHERE icao = \"$icao\" LIMIT 1;";
+            $result = $this->executeQuery($sql);
+            $array = $result->fetch_all(MYSQLI_ASSOC);
             return $array;
         }
 
@@ -62,20 +83,14 @@
 
             $sql = "INSERT INTO flight (`flight_id`, `flight_number`, `airport_dep`, `airport_arr`, `time_dep`, `check_in`, `status`, `airline`, `gate`) VALUES (NULL,\"$flightnumb\", \"$airport\", \"$arr_name\", \"$dep_time\", \"$checkin\", \"$status\", \"$airline\", \"$gate\");";
             if ($this->conn->query($sql) === FALSE) {
-                echo "Could not connect to database";
+                echo "Could not insert flight";
                 die();
             }
         }
 
         public function addUserID($user_id){
-
-            $flight_sql = "SELECT flight_id FROM flight WHERE user_id IS NULL;";
-            $result = $this->executeQuery($flight_sql);
-            $flight_id_arr = mysqli_fetch_array($result);
-            $flight_id = $flight_id_arr[0];
-
-            echo "this is the flight id: ";
-            var_dump($flight_id);
+            $flight_id_arr = $this->getLastAdded("`flight`", "`flight_id`");
+            $flight_id = $flight_id_arr["flight_id"];
 
             $sql = "UPDATE flight SET user_id = \"$user_id\" WHERE flight_id = \"$flight_id\";";
             $result = $this->executeQuery($sql);

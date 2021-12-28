@@ -66,8 +66,10 @@
 					$arr_name = $arr_airport["name"];
 
 					$dep_time = $flights[$i]->departure->scheduledTimeLocal;
-					$checkin = $flights[$i]->departure->checkInDesk;
-
+					if(count((array)$flights[$i]->departure) > 3){
+						$checkin = $flights[$i]->departure->checkInDesk;
+					}
+					else $checkin = "Unknown";
 					$status = $flights[$i]->status;
 					$airline = $flights[$i]->airline->name;
 

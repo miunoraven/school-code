@@ -1,0 +1,237 @@
+body{
+    margin:0;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.background{
+    position: relative;
+    width: 100%; 
+    height: 100%; 
+    padding: 0; 
+    margin: 0;
+    height: 100vh
+}
+
+.background::before{
+    content: ' ';
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    background-image: url('../images/airport2.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.container{
+    position: relative;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+h1{
+    font-size: 40pt;
+}
+.tickets_div{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.ticket{
+    background-color: white;
+    margin: 10px 20px;
+    margin-bottom: 0;
+    font-weight: bold;
+    width: 100%;
+    border-top-left-radius: 10pt;
+    border-top-right-radius: 10pt;
+}
+
+#route{
+    display: flex;
+    justify-content: space-around;
+    font-size: 15pt;
+}
+
+
+#boardingpass{
+    background-color: #719ECE;
+    border-top-left-radius: 10pt;
+    border-top-right-radius: 10pt;
+    color: white;
+    padding: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#info{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+}
+
+.rout_text{
+    margin-top: 0;
+    padding: 20px 30px;
+    text-align: left;
+    font-size: 22pt;
+}
+
+.result{
+    text-align: center;
+    padding: 10px;
+    font-size: 20pt;
+    margin-top: 0;
+}
+
+.title_info{
+    font-size: 15pt;
+    color: #719ECE;
+}
+
+
+.active, .collapsible {
+    background-color: #719ECE;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15pt;
+    font-family: 'Outfit', sans-serif;
+    border-bottom-left-radius: 10pt;
+    border-bottom-right-radius: 10pt;
+}
+
+.active{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.collapsible:hover {
+    background-color: steelblue;
+}
+  
+.collapse_div {
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    width: 100%;
+    border-bottom-left-radius: 10pt;
+    border-bottom-right-radius: 10pt;
+}
+
+
+.corona, .freetime{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 15px 30px;
+}
+
+
+.transport_links{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.transport_a, .add_button{
+    font-family: 'Outfit', sans-serif;
+    font-size: 13pt;
+    text-align: center;
+    background-color: #719ECE;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 20px 10px;
+    border-radius: 20px;
+    border: solid 1px #719ECE;
+    text-decoration: none;
+}
+
+.transport_a:hover, .add_button:hover{
+    background-color: white;
+    color: #719ECE;
+}
+
+.parking, .publictransport{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.image{
+    display: flex;
+    justify-content: center;
+}
+.link_img{
+    height: 50px;
+}
+
+.title{
+    display: flex;
+    align-content: center;
+    padding-left: 30px;
+}
+
+.title_freetime{
+    display: flex;
+    align-content: center;
+}
+
+.checkin_h3{
+    margin: 0 10px;
+    margin-top: 10px;
+}
+
+.checkin, .transport{
+    padding: 0;
+}
+
+.checkin_info, .boarding_info{
+    display: flex;
+    justify-content: space-evenly;
+    color: steelblue;
+}
+
+.bold_text{
+    font-weight: bold;
+    color: rgb(39, 74, 102);
+}
+
+.image_security{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.title_h3{
+    padding-left: 30px;
+}
+
+.dutyfree_a, .security_img, .pcr{
+    margin: 20px;
+    border-radius: 5pt;
+}
+
+.add_flight{
+    margin: 50px;
+}
+.add_button{
+    font-size: 20pt;
+    text-decoration: none;
+}
